@@ -17,10 +17,20 @@ const io = new Server(server, {
   },
 })
 
+app.get('/', function (req, res) {
+  res.send('hello')
+})
+
 const CHAT_BOT = 'ChatBot'
 
-io.on('connection', (socket) => {
+io.on('connection', function (socket) {
   console.log(`User connected ${socket.id}`)
+  socket.on('chat message', function (msg) {
+    io.emit('chat message', msg)
+  })
+  socket.on('disconnect', function () {
+    console.log('user disconnected')
+  })
 })
 
 server.listen(4000, () => console.log('server up at 4000'))
