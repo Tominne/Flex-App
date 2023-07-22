@@ -4,6 +4,9 @@ const app = express()
 const http = require('http')
 const cors = require('cors')
 const { Server } = require('socket.io')
+const harperGetMessages = require('./services/harper-save-messages')
+const harperSaveMessage = require('./services/harper-get-messages')
+const leaveRoom = require('./utils/leave-room')
 
 //middleware
 app.use(cors())
@@ -22,14 +25,13 @@ app.get('/', function (req, res) {
 })
 
 const CHAT_BOT = 'ChatBot'
-
 let chatRoom = ''
 let allUsers = []
 
 io.on('connection', function (socket) {
   console.log(`User connected ${socket.id}`)
 
-  socket.on('join_room', (data) => {
+  socket.on('join_room', async (data) => {
     const { username, room } = data
     socket.join(room)
 
@@ -46,19 +48,22 @@ io.on('connection', function (socket) {
     chatRoomUsers = allUsers.filter((user) => user.room === room)
     socket.to(room).emit('chatroom_users', chatRoomUsers)
 
-    harperGetMessages(room)
-      .then((last100Messages) => {
-        socket.emit('last_100_messages', last100Messages)
-      })
-      .catch((err) => console.log('msges not sending/saving'))
+    const last100Messages = await harperGetMessages(room)
+    socket.emit('last_100_messages', last100Messages)
   })
-  socket.on('send_message', (data) => {
+
+  socket.on('send_message', async (data) => {
     const { message, username, room, __createdtime__ } = data
     io.in(room).emit('recieved messages', data)
-    harperSaveMessage(message, username, room, __createdtime__)
-      .then((response) => console.log(response))
-      .catch((err) => console.log('error responding'))
+    const response = await harperSaveMessage(
+      message,
+      username,
+      room,
+      __createdtime__
+    )
+    console.log(response)
   })
+
   socket.on('leave_room', (data) => {
     const { username, room } = data
     socket.leave(room)
@@ -86,5 +91,4 @@ io.on('connection', function (socket) {
     }
   })
 })
-
 server.listen(4000, () => console.log('server up at 4000'))
