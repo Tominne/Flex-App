@@ -1,13 +1,13 @@
-let axios = require('axios')
+var axios = require('axios')
 
 function harperSaveMessage(message, username, room) {
   const dbUrl = process.env.HARPERDB_URL
   const dbPw = process.env.HARPERDB_PW
   if (!dbUrl || !dbPw) return null
 
-  let data = JSON.stringify({
+  var data = JSON.stringify({
     operation: 'insert',
-    schema: 'realtime_chat_app',
+    schema: 'sparkles',
     table: 'messages',
     records: [
       {
@@ -18,7 +18,7 @@ function harperSaveMessage(message, username, room) {
     ],
   })
 
-  let config = {
+  var config = {
     method: 'post',
     url: dbUrl,
     headers: {

@@ -4,10 +4,10 @@ const app = express()
 const http = require('http')
 const cors = require('cors')
 const { Server } = require('socket.io')
-const harperGetMessages = require('./services/harper-save-messages')
-const harperSaveMessage = require('./services/harper-get-messages')
+const harperGetMessages = require('./services/harper-get-messages')
+const harperSaveMessage = require('./services/harper-save-messages')
 const leaveRoom = require('./utils/leave-room')
-
+console.log(process.env.HARPERDB_URL)
 //middleware
 app.use(cors())
 
@@ -28,7 +28,7 @@ const CHAT_BOT = 'ChatBot'
 let chatRoom = ''
 let allUsers = []
 
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
   console.log(`User connected ${socket.id}`)
 
   socket.on('join_room', async (data) => {
@@ -37,16 +37,17 @@ io.on('connection', function (socket) {
 
     let __createdtime__ = Date.now()
 
-    socket.to(room).emit('recieved_message', {
-      message: `${username} has entered the party!`,
-      message: `Welcome ${username}`,
+    socket.to(room).emit('received_messages', {
+      message: `${username} has entered the party! Welcome ${username}`,
       username: CHAT_BOT,
       __createdtime__,
     })
+
     chatRoom = room
     allUsers.push({ id: socket.id, username, room })
     chatRoomUsers = allUsers.filter((user) => user.room === room)
     socket.to(room).emit('chatroom_users', chatRoomUsers)
+    socket.emit('chatroom_users', chatRoomUsers)
 
     const last100Messages = await harperGetMessages(room)
     socket.emit('last_100_messages', last100Messages)
@@ -54,7 +55,7 @@ io.on('connection', function (socket) {
 
   socket.on('send_message', async (data) => {
     const { message, username, room, __createdtime__ } = data
-    io.in(room).emit('recieved messages', data)
+    io.in(room).emit('received_messages', data)
     const response = await harperSaveMessage(
       message,
       username,
@@ -71,7 +72,7 @@ io.on('connection', function (socket) {
     // Remove user from memory
     allUsers = leaveRoom(socket.id, allUsers)
     socket.to(room).emit('chatroom_users', allUsers)
-    socket.to(room).emit('receive_message', {
+    socket.to(room).emit('received_messages', {
       username: CHAT_BOT,
       message: `${username} has left the chat`,
       __createdtime__,
@@ -85,10 +86,10 @@ io.on('connection', function (socket) {
     if (user?.username) {
       allUsers = leaveRoom(socket.id, allUsers)
       socket.to(chatRoom).emit('chatroom_users', allUsers)
-      socket.to(chatRoom).emit('receive_message', {
+      socket.to(chatRoom).emit('received_messages', {
         message: `${user.username} has disconnected from the party.`,
       })
     }
   })
 })
-server.listen(4000, () => console.log('server up at 4000'))
+server.listen(4000, () => console.log('Server up at 3000'))
