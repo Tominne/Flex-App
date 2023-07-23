@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": "https://github.com/Tominne/SparklezChatz",
   "scripts": {
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "run-s build:client build:server",
+    "build:client": "vite build",
+    "build:server": "tsc -p server/tsconfig.json",
+    "start": "node dist/server/index.js",
+    "test": "vitest",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "vite",
+    "dev:server": "nodemon index.js",
+    "knex": "knex --knexfile ./db/knexfile.js",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
   },
   "keywords": [],
   "author": "Min Iles",
@@ -17,7 +27,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "mysql": "^2.18.1",
     "socket.io": "^4.7.1",
-    "socket.io-client": "^4.7.1"
+    "socket.io-client": "^4.7.1",
+    "sqlite3": "^5.1.6",
+    "vite": "^4.4.6"
   }
 }
