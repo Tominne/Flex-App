@@ -6,7 +6,7 @@
   "main": "server/index.ts",
   "scripts": {
     "build": "run-s build:client build:server",
-    "build:client": "vite build",
+    "build:client": "npm run build",
     "build:server": "tsc -p server/tsconfig.json",
     "start": "node dist/server/index.js",
     "test": "vitest",
