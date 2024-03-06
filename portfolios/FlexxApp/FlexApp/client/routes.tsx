@@ -10,7 +10,7 @@ export const routes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />}>
     <Route index element={<AlertList />} />
 
-    <Route path=":alertId" element={<AlertDetails />} />
+    <Route path="/" element={<AlertDetails />} />
     <Route path="/home" element={<HomePage />} />
     <Route path="/profile" element={<Profile />} />
   </Route>

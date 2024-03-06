@@ -34,7 +34,7 @@ export default function AppLayout() {
                 <MDBNavbarLink href="home">Min Home</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#">Um other stuff</MDBNavbarLink>
+                <MDBNavbarLink href="/">Um other stuff</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="profile" tabIndex={-1}>
