@@ -19,11 +19,7 @@ export default function AlertList() {
         Cheers...
         <div>
           <br></br>
-          <img
-            className="gif"
-            src="/client/public/minstand.jpg"
-            alt="Min sus"
-          ></img>
+          <img className="gif" src="/minstand.jpg" alt="Min sus"></img>
           <p>This is still me running in a field!</p>
         </div>
       </div>
