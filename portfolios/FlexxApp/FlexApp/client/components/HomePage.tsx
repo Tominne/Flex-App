@@ -80,12 +80,12 @@ export default function HomePage() {
       <div className="button-container">
         <MDBNavbarLink href="/">
           <Button variant={buttonColor} size="lg" className="round-button">
-            Alert List
+            Existential Well
           </Button>
         </MDBNavbarLink>
         <MDBNavbarLink href="/profile">
           <Button variant={buttonColor} size="lg" className="round-button">
-            Profile
+            Your Broken Profile
           </Button>
         </MDBNavbarLink>
       </div>
