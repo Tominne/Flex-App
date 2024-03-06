@@ -1,17 +1,20 @@
 const express = require('express')
 const app = express()
-const thoughRoutes = require('./routes/thoughtRoutes')
+const thoughtRoutes = require('./routes/thoughtRoutes')
+const cors = require('cors')
 
 const PORT = process.env.PORT || 3000
 
 //middleware
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: '*',
+  })
+)
 app.use(express.json())
-app.use('/api', thoughRoutes) // Parse JSON requests
-
-// Routes
-app.get('/', (req, res) => {
-  res.send('Hello from the backend!')
-})
+app.use('/api', thoughtRoutes) // Parse JSON requests
 
 // Start the server
 app.listen(PORT, () => {
