@@ -158,6 +158,11 @@ Button {
   overflow: auto;
 }
 
+.gif {
+  width: 480px;
+  height: 270px;
+}
+
 .waiting {
   background: radial-gradient(#efb456 3%, 8%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%; background-position:40% 100%; background-repeat: no-repeat;opacity: 0.8;
   position: fixed;

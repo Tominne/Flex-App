@@ -17,12 +17,35 @@ export default function AlertList() {
         Please come back later
         <br></br>
         Cheers...
+        <div>
+          <br></br>
+          <img
+            className="gif"
+            src="/client/public/minstand.jpg"
+            alt="Min sus"
+          ></img>
+          <p>This is still me running in a field!</p>
+        </div>
       </div>
     )
   }
 
   if (alerts === 'null' || isLoading) {
-    return <div className="loading">Loading a semi coherent thought...</div>
+    return (
+      <div className="loading">
+        Loading a semi coherent thought...
+        <br></br>
+        <div>
+          <br></br>
+          <img
+            className="gif"
+            src="/client/public/minstand.jpg"
+            alt="Min sus"
+          ></img>
+          <p>This is me running in a field!</p>
+        </div>
+      </div>
+    )
   }
 
   if (!alerts || isLoading) {

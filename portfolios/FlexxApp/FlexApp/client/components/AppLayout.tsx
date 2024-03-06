@@ -46,11 +46,18 @@ export default function AppLayout() {
         </MDBContainer>
       </MDBNavbar>
       <header className="header">
-        <h1 className="title">Hi My Name Min This Is A Website!</h1>
+        <h1 className="title">Hi, my name is Min...</h1>
+        <br></br>
+        <h2>& this is a Website</h2>
       </header>
       <section className="main">
         <Outlet />
       </section>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
