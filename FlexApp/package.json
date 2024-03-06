@@ -1,8 +1,8 @@
 {
-  "name": "redping",
+  "name": "flex-app",
   "version": "0.1.0",
   "description": "Build a alert app",
-  "repository": "https://github.com/Red-Ping/red-ping-frontend",
+  "repository": "https://github.com/Tominne/FlexxApp",
   "main": "client/index.tsx",
   "scripts": {
     "build": "run-s build:client",
