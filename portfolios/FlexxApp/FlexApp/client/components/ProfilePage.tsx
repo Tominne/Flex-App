@@ -52,7 +52,7 @@ export default function Profile() {
       )}
       {image && !isImageLoaded && (
         <div>
-          Yeah this things doesn't work yet either, but feel free to try.
+          Yeah this things doesn't work yet either, but feel free to try...
         </div>
       )}
     </div>

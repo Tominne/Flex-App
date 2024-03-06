@@ -133,7 +133,7 @@ Button {
   background-size: 90% 100%;background-position:  0% -100px;background-repeat: no-repeat;
   opacity: 1;
   position: relative;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   top: 6vh;
   left: 0;
@@ -147,7 +147,7 @@ Button {
   background: radial-gradient(#efb456 5%, 15%, #2c55db 50%, #3c4e8c, #2b3866); background-size: 200% 250%;background-position:  0% -100px;background-repeat: no-repeat;
   opacity: 1;
   position: fixed;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   top: 6vh;
   bottom: 0;
@@ -161,7 +161,7 @@ Button {
 .waiting {
   background: radial-gradient(#efb456 3%, 8%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%; background-position:40% 100%; background-repeat: no-repeat;opacity: 0.8;
   position: fixed;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   top: 6vh;
   left: 0;
