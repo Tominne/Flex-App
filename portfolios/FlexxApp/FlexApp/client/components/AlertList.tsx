@@ -1,15 +1,8 @@
 import { getAlerts } from '../apis/alert'
 import React, { useEffect } from 'react'
-import axios from 'axios'
-import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import AlertForm from './AlertForm'
-import { Uploader } from 'uploader'
-import AlertListItem from './AlertListItem'
-const uploader = Uploader({
-  apiKey: 'free',
-})
 
 export default function AlertList() {
   const { data: alerts, isError, isLoading } = useQuery(['alerts'], getAlerts)
