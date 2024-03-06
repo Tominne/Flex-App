@@ -24,6 +24,13 @@ export default function AlertList() {
           </a>
           <p>This is still me running in a field!</p>
         </div>
+        <div className="background">
+          <section className="alert-list">
+            <br></br>
+            <h2>Customize a semi coherent thought</h2>
+            <AlertForm />
+          </section>
+        </div>
       </div>
     )
   }
@@ -40,24 +47,12 @@ export default function AlertList() {
           </a>
           <p>This is me running in a field!</p>
         </div>
+        <section className="alert-list">
+          <br></br>
+          <h2>Customize a semi coherent thought</h2>
+          <AlertForm />
+        </section>
       </div>
     )
   }
-
-  if (!alerts || isLoading) {
-    return <div>Loading a semi coherent thought...</div>
-  }
-
-  return (
-    <div className="background">
-      <section className="alert-list">
-        <h2>Semi coherent thought list:</h2>
-        <br></br>
-        <Alert variant="danger">{`${[alerts]}`}</Alert>
-        <br></br>
-        <h2>Customize a semi coherent thought</h2>
-        <AlertForm />
-      </section>
-    </div>
-  )
 }

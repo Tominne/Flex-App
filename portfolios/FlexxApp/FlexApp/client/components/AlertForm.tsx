@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addalert } from '../apis/alert'
+import { addThought } from '../apis/alert'
 import { Button, Dropdown } from 'react-bootstrap'
 
 const initialFormData = {
-  AlertName: '',
+  thoughtName: '',
 }
 
 export default function AlertForm() {
@@ -13,9 +13,9 @@ export default function AlertForm() {
 
   const queryClient = useQueryClient()
 
-  const addalertMutation = useMutation(addalert, {
+  const addThoughtMutation = useMutation(addThought, {
     onSuccess: async () => {
-      queryClient.invalidateQueries(['alerts'])
+      queryClient.invalidateQueries(['thoughts'])
     },
   })
 
@@ -27,15 +27,15 @@ export default function AlertForm() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     event.preventDefault()
-    addalertMutation.mutate(form)
+    addThoughtMutation.mutate(form)
     setForm(initialFormData)
   }
 
-  if (addalertMutation.isError) {
-    return <div>There was an error trying to add your alert</div>
+  if (addThoughtMutation.isError) {
+    return <div>There was an error trying to add your wise thought</div>
   }
 
-  if (addalertMutation.isLoading) {
+  if (addThoughtMutation.isLoading) {
     return <div>Adding your thought I guess...</div>
   }
 
@@ -44,9 +44,9 @@ export default function AlertForm() {
       <section id="add-alert-to-list" className="formContainer">
         <input
           type="text"
-          value={form.AlertName}
-          onChange={(e) => setForm({ AlertName: e.target.value })}
-          placeholder="Enter new alert text"
+          value={form.thoughtName}
+          onChange={(e) => setForm({ thoughtName: e.target.value })}
+          placeholder="Enter new thought text"
         />
         <br></br>
         <Button onClick={handleSubmit}>Add Thought</Button>

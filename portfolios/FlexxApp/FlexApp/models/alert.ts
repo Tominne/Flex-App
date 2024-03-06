@@ -4,5 +4,5 @@ export interface Alert {
 }
 
 export interface AlertData {
-  AlertName: string
+  thoughtName: string
 }
