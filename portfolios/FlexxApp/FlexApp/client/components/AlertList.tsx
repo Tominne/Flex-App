@@ -19,7 +19,9 @@ export default function AlertList() {
         Cheers...
         <div>
           <br></br>
-          <img className="gif" src="/minstand.jpg" alt="Min sus"></img>
+          <a href="/minstand.jpg">
+            <img className="gif" src="/minstand.jpg" alt="Min Running"></img>
+          </a>
           <p>This is still me running in a field!</p>
         </div>
       </div>
@@ -33,7 +35,9 @@ export default function AlertList() {
         <br></br>
         <div>
           <br></br>
-          <img className="gif" src="/minstand.jpg" alt="Min sus"></img>
+          <a href="/minstand.jpg">
+            <img className="gif" src="/minstand.jpg" alt="Min Running"></img>
+          </a>
           <p>This is me running in a field!</p>
         </div>
       </div>
