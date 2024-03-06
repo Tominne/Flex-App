@@ -19,7 +19,7 @@ export default function AppLayout() {
     <div className="background">
       <MDBNavbar expand="lg" light bgColor="light">
         <MDBContainer fluid>
-          <MDBNavbarBrand href="#">RED PING</MDBNavbarBrand>
+          <MDBNavbarBrand href="#">Min's Website Thing</MDBNavbarBrand>
           <MDBNavbarToggler
             type="button"
             aria-expanded="false"
@@ -46,7 +46,7 @@ export default function AppLayout() {
         </MDBContainer>
       </MDBNavbar>
       <header className="header">
-        <h1 className="title">Red Ping</h1>
+        <h1 className="title">Hi My Name Min This Is A Website!</h1>
       </header>
       <section className="main">
         <Outlet />

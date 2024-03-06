@@ -64,7 +64,7 @@ export default function AlertListItem({ alertId, alertName }: Props) {
             <label htmlFor="updateName">Rename: </label>
             <input
               type="text"
-              name="alertName"
+              name="thoughtName"
               id="updateName"
               value={rename}
               onChange={(e) => setRename(e.target.value)}

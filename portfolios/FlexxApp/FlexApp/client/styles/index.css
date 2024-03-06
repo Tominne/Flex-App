@@ -79,7 +79,7 @@ link {
 }
 
 .alerts {
-  color: red;
+  color: #d8b800;
   font-size: x-large;
 }
 
@@ -89,7 +89,7 @@ p {
   display: block;
   flex-basis: auto;
   border: #2f2e2e;
-  color: rgba(255, 66, 66, 0.953);
+  color: rgba(249, 212, 0, 0.953);
   margin: auto;
   text-align: center ;
 }
@@ -123,7 +123,7 @@ Button {
 
 .header {
   z-index: 2;
-  color: #ff5b5b;
+  color: #dbd000;
   margin-top: 7vh;
   background-color: linear-gradient(rgba(134,115,71,1.0),rgba(131,110,82,1.0),rgba(111,85,62,1.0),rgba(78,59,42,1.0),rgba(96,91,78,1.0),rgba(117,117,107,1.0));
 }

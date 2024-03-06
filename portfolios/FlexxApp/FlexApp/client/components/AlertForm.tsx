@@ -36,7 +36,7 @@ export default function AlertForm() {
   }
 
   if (addalertMutation.isLoading) {
-    return <div>Adding your alert</div>
+    return <div>Adding your thought I guess...</div>
   }
 
   return (
@@ -49,7 +49,7 @@ export default function AlertForm() {
           placeholder="Enter new alert text"
         />
         <br></br>
-        <Button onClick={handleSubmit}>Add Alert</Button>
+        <Button onClick={handleSubmit}>Add Thought</Button>
         <br></br>
 
         <Dropdown>
@@ -57,10 +57,10 @@ export default function AlertForm() {
             Examples
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item>Mild Discomfort</Dropdown.Item>
-            <Dropdown.Item>Require Urgent Action</Dropdown.Item>
-            <Dropdown.Item>Keep Tabs</Dropdown.Item>
-            <Dropdown.Item>On The Mend</Dropdown.Item>
+            <Dropdown.Item>Existential anxiety</Dropdown.Item>
+            <Dropdown.Item>Yay breaking the law!</Dropdown.Item>
+            <Dropdown.Item>I like Cats</Dropdown.Item>
+            <Dropdown.Item>Can I go home?</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </section>
