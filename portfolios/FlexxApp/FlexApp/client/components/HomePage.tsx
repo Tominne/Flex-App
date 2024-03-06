@@ -92,9 +92,7 @@ export default function HomePage() {
       <br></br>
       <br></br>
       <br></br>
-      <Alert className="alert">
-        Welcome to Your Personal Digital Alert App
-      </Alert>
+      <Alert className="alert">Welcome to MY WEIRD WEB SPACE</Alert>
       {/* Use a ternary operator to render either the sign up form or the log in form */}
       {isSignedUp ? (
         // Render the sign up form
@@ -152,7 +150,9 @@ export default function HomePage() {
             <input type="submit" value="Sign Up"></input>
           </form>
           {/* Render a button to toggle to the sign up form */}
-          <Button onClick={toggleForm}>Login</Button>
+          <Button onClick={toggleForm}>
+            Login(it doesnt rly work yet soz)
+          </Button>
         </>
       )}
       {/* Render the toast container */}

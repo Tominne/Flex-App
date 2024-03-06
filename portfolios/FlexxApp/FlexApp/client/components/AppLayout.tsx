@@ -31,14 +31,14 @@ export default function AppLayout() {
           <MDBCollapse navbar show={showNav}>
             <MDBNavbarNav>
               <MDBNavbarItem>
-                <MDBNavbarLink href="home">Home</MDBNavbarLink>
+                <MDBNavbarLink href="home">Min Home</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#">Alert List</MDBNavbarLink>
+                <MDBNavbarLink href="#">Um other stuff</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="profile" tabIndex={-1}>
-                  Profile
+                  Visitors Center
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
