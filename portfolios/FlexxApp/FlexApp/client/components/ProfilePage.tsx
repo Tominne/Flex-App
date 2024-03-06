@@ -51,7 +51,9 @@ export default function Profile() {
         />
       )}
       {image && !isImageLoaded && (
-        <div>Loading rational explanation for what you are doing here...</div>
+        <div>
+          Yeah this things doesn't work yet either, but feel free to try.
+        </div>
       )}
     </div>
   )
