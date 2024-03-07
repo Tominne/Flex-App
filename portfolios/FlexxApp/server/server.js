@@ -1,9 +1,8 @@
 const express = require('express')
 const app = express()
 const thoughtRoutes = require('./routes/thoughtRoutes')
+const pfpRoutes = require('./routes/pfpRoutes')
 const cors = require('cors')
-
-const PORT = process.env.PORT || 3000
 
 //middleware
 app.use(
@@ -14,9 +13,15 @@ app.use(
   })
 )
 app.use(express.json())
-app.use('/api', thoughtRoutes) // Parse JSON requests
+app.use('/api', thoughtRoutes)
+app.use('/api', pfpRoutes)
 
-// Start the server
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 3002
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`)
 })

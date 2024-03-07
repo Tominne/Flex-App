@@ -2,6 +2,7 @@ const Thought = require('../db/thoughts.js')
 
 async function addThought(req, res) {
   try {
+    console.log(req.body)
     const { thoughtName } = req.body
     const newThought = new Thought({ thoughtName })
     const savedThought = await newThought.save()
