@@ -98,7 +98,8 @@ export async function getalertById(alertId: string): Promise<Alert> {
 
 // POST /api/thoughts
 export async function addThought(thoughtName: string): Promise<string> {
-  const response = await request.post(thoughtURL).send(thoughtName)
+  console.log(thoughtName)
+  const response = await request.post(thoughtURL).send({ thoughtName })
   console.log(response.body)
   return response.body
 }

@@ -3,14 +3,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addThought } from '../apis/alert'
 import { Button, Dropdown } from 'react-bootstrap'
 
-const initialFormData = {
-  thoughtName: '',
-}
+const initialFormData = { thoughtName: '' }
 
 export default function AlertForm() {
   const [form, setForm] = useState(initialFormData)
+  const [formString, setFormString] = useState('')
   const [isOpen, setIsOpen] = useState(false)
-
+  const [successMsg, setSuccessMsg] = useState('')
   const queryClient = useQueryClient()
 
   const addThoughtMutation = useMutation(addThought, {
@@ -26,8 +25,12 @@ export default function AlertForm() {
   async function handleSubmit(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
+    console.log(form.thoughtName)
     event.preventDefault()
-    addThoughtMutation.mutate(form)
+    addThoughtMutation.mutate(form.thoughtName)
+    setSuccessMsg(
+      `You have successfully added ${form.thoughtName} to my great ideas pool`
+    )
     setForm(initialFormData)
   }
 
@@ -51,7 +54,7 @@ export default function AlertForm() {
         <br></br>
         <Button onClick={handleSubmit}>Add Thought</Button>
         <br></br>
-
+        {successMsg && <div>{successMsg}</div>}
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Examples
