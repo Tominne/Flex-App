@@ -77,14 +77,12 @@ export const login = async (username: string, password: string) => {
   }
 }
 
-//get alert
-export async function getAlerts(): Promise<any> {
+//get thoughts
+export async function getThoughts(): Promise<any> {
   try {
-    const response = await request.get(`${thoughtURL}/`)
+    const response = await request.get(`${thoughtURL}`)
     console.log(response.body)
-    const stringed = JSON.stringify(response.body)
-    const cleanedString = stringed.replace(/[{}:"]/g, ' ')
-    return cleanedString
+    return response.body
   } catch (error) {
     console.error(error)
   }

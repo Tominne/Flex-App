@@ -1,11 +1,15 @@
-import { getAlerts } from '../apis/alert'
+import { getThoughts } from '../apis/alert'
 import React, { useEffect } from 'react'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import AlertForm from './AlertForm'
 
-export default function AlertList() {
-  const { data: alerts, isError, isLoading } = useQuery(['alerts'], getAlerts)
+export default function ThoughtList() {
+  const {
+    data: thoughts,
+    isError,
+    isLoading,
+  } = useQuery(['thoughts'], getThoughts)
   useEffect(() => {
     return () => {}
   }, [])
@@ -35,7 +39,7 @@ export default function AlertList() {
     )
   }
 
-  if (alerts === 'null' || isLoading) {
+  if (thoughts === 'null' || isLoading) {
     return (
       <div className="loading">
         Loading a semi coherent thought...
@@ -57,11 +61,12 @@ export default function AlertList() {
   } else {
     return (
       <div>
-        There was an error loading any thoughts atm.
-        <br></br>
-        Please come back later
-        <br></br>
-        Cheers...
+        {thoughts.map((thought: any, index: any) => (
+          <div key={index}>
+            {thought.thoughtName ? thought.thoughtName : 'No thoughts here...'}
+          </div>
+        ))}
+
         <div>
           <br></br>
           <a href="/minstand.jpg">
