@@ -23,9 +23,10 @@ export default function ThoughtList() {
         Cheers...
         <div>
           <br></br>
-          <a href="/minstand.jpg">
-            <img className="gif" src="/minstand.jpg" alt="Min Running"></img>
+          <a href="/Malan.png">
+            <img className="gif" src="/Malan.png" alt="David Malan"></img>
           </a>
+          <p>This is David Malan!</p>
           <p>This is still me running in a field!</p>
         </div>
         <div className="background">
@@ -46,10 +47,10 @@ export default function ThoughtList() {
         <br></br>
         <div>
           <br></br>
-          <a href="/minstand.jpg">
-            <img className="gif" src="/minstand.jpg" alt="Min Running"></img>
+          <a href="/Malan.png">
+            <img className="gif" src="/Malan.png" alt="David Malan"></img>
           </a>
-          <p>This is me running in a field!</p>
+          <p>This is David Malan!</p>
         </div>
         <section className="alert-list">
           <br></br>
@@ -69,10 +70,10 @@ export default function ThoughtList() {
 
         <div>
           <br></br>
-          <a href="/minstand.jpg">
-            <img className="gif" src="/minstand.jpg" alt="Min Running"></img>
+          <a href="/Malan.png">
+            <img className="gif" src="/Malan.png" alt="David Malan"></img>
           </a>
-          <p>This is still me running in a field!</p>
+          <p>This is David Malan!</p>
         </div>
         <div className="background">
           <section className="alert-list">
