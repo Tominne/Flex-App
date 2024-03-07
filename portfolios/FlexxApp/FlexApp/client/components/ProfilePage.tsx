@@ -1,7 +1,10 @@
 import { Uploader } from 'uploader'
-import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { saveImg } from '../apis/profile'
+import { useContext } from 'react'
+import UserContext from './UserContext'
+import React, { useState, useEffect } from 'react'
+import { fetchUser } from '../apis/fetchUser'
 
 const uploader = Uploader({
   apiKey: 'free',
@@ -10,6 +13,11 @@ const uploader = Uploader({
 export default function Profile() {
   const [image, setImage] = useState('null')
   const [isImageLoaded, setIsImageLoaded] = useState(Boolean)
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetchUser().then((user) => setUser(user))
+  }, [])
 
   async function handleImageUpload() {
     uploader
@@ -32,7 +40,8 @@ export default function Profile() {
             let base64data = reader.result as string
             setImage(base64data)
             try {
-              await saveImg(base64data)
+              const userId = user.id
+              await saveImg(base64data, userId)
             } catch (error) {
               console.error(error)
             }
