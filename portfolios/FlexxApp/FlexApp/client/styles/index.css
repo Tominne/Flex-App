@@ -159,8 +159,8 @@ Button {
 }
 
 .gif {
-  width: 480px;
-  height: 270px;
+  width: 30vw;
+  height: auto;
 }
 
 .waiting {
