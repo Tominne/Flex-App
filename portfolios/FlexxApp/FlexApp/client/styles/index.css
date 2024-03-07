@@ -2,7 +2,7 @@ html,
 body {
   overflow: auto;
   background-color: #2f2e2e;
-  color: #ffffff;
+  color: #ddecf0;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1em;
   margin: 0;
@@ -35,7 +35,7 @@ link {
 }
 
 .dropdown-menu{
-  color:rgb(255, 255, 255);
+  color:rgb(206, 221, 241);
 }
 
 .loading {
@@ -57,7 +57,7 @@ link {
 .image-placeholder {
   font-weight: 900;
   border-radius: 75px;
-  border-color: chocolate;
+  border-color: rgb(217, 141, 0);
 }
 
 .formContainer {
@@ -79,7 +79,7 @@ link {
 }
 
 .alerts {
-  color: #d8b800;
+  color: #c97b0e;
   font-size: x-large;
 }
 
@@ -89,7 +89,7 @@ p {
   display: block;
   flex-basis: auto;
   border: #2f2e2e;
-  color: rgba(249, 212, 0, 0.953);
+  color: rgba(249, 178, 0, 0.953);
   margin: auto;
   text-align: center ;
 }
@@ -123,14 +123,13 @@ Button {
 
 .header {
   z-index: 2;
-  color: #dbd000;
+  color: #dc8b00ed;
   margin-top: 7vh;
   background-color: linear-gradient(rgba(134,115,71,1.0),rgba(131,110,82,1.0),rgba(111,85,62,1.0),rgba(78,59,42,1.0),rgba(96,91,78,1.0),rgba(117,117,107,1.0));
 }
 
 .dusk {
-  background: radial-gradient(orange, #1f3c9b, #0e183d, #171e36);
-  background-size: 90% 100%;background-position:  0% -100px;background-repeat: no-repeat;
+  background: radial-gradient(rgba(232, 152, 3, 0.905), #1f3c9b, #0e183d, #171e36);
   opacity: 1;
   position: relative;
   height: 100vh;

@@ -1,6 +1,7 @@
 import { Uploader } from 'uploader'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
+import { saveImg } from '../apis/profile'
 
 const uploader = Uploader({
   apiKey: 'free',
@@ -10,7 +11,7 @@ export default function Profile() {
   const [image, setImage] = useState('null')
   const [isImageLoaded, setIsImageLoaded] = useState(Boolean)
 
-  function handleImageUpload() {
+  async function handleImageUpload() {
     uploader
       .open({
         multi: false,
@@ -25,7 +26,19 @@ export default function Profile() {
       })
       .then((files) => {
         const file = files[0]
-        if (file instanceof Blob) setImage(URL.createObjectURL(file))
+        if (file instanceof Blob) {
+          let reader = new FileReader()
+          reader.onloadend = async function () {
+            let base64data = reader.result as string
+            setImage(base64data)
+            try {
+              await saveImg(base64data)
+            } catch (error) {
+              console.error(error)
+            }
+          }
+          reader.readAsDataURL(file)
+        }
       })
   }
 
