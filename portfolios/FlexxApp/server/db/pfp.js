@@ -12,7 +12,7 @@ async function run() {
       'mongodb+srv://minelliot48:TuX4wiyYSrcqsAMS@cluster0.90muosv.mongodb.net/Cluster0'
     )
   }
-  const result = await Pfp.find({}, 'thoughtName')
+  const result = await Pfp.find({}, userId)
   console.log(result)
 }
 
