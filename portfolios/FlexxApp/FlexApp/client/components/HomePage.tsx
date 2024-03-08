@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
-import { login, signUp } from '../apis/alert'
 import React, { useEffect, useState } from 'react'
 import { MDBNavbarLink } from 'mdb-react-ui-kit'
 import { ToastContainer, toast } from 'react-toastify'
+import {
+  signUp,
+  signIn,
+  deleteCurrentUser,
+  updateUserPassword,
+  emailVerify,
+} from '../apis/fetchUser'
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
@@ -46,6 +52,7 @@ export default function HomePage() {
       setEmail('')
       setPassword('')
       setIsSignedUp(true)
+      setMessage('You are all signed in')
     } catch (err) {
       console.log(err)
       setMessage('soz loser')
@@ -55,9 +62,10 @@ export default function HomePage() {
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
-      const response = await login(email, password)
+      const response = await signIn(email, password)
       setEmail('')
       setPassword('')
+      setIsSignedUp(true)
     } catch (err) {
       console.log(err)
     }

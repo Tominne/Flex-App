@@ -12,3 +12,14 @@ export async function saveImg(pfp: string, userId: string): Promise<string> {
     throw error
   }
 }
+
+export async function getImg(userId: string): Promise<string> {
+  try {
+    const response = await request.get(`${imgURL}`).send({ userId }) // include userId in the request body
+    console.log(response.body)
+    return response.body
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
