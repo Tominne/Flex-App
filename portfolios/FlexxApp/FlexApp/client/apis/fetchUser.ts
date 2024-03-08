@@ -1,6 +1,5 @@
-import firebase from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import 'firebase/auth'
-import * as admin from 'firebase-admin'
 //need oath object:
 import {
   getAuth,
@@ -15,7 +14,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth'
-import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 
 export const firebaseConfig = {
@@ -27,8 +25,7 @@ export const firebaseConfig = {
   appId: '1:706146452374:web:b7abd504690adf060fd3b7',
   measurementId: 'G-2YK8188EQ2',
 }
-
-firebase.initializeApp(firebaseConfig)
+const firebaseApp = initializeApp(firebaseConfig)
 
 const auth = getAuth()
 const user = auth.currentUser
@@ -129,21 +126,6 @@ export const deleteCurrentUser = async () => {
 }
 
 let uid: string
-
-export const updateUserPassword = async (iud: string, newPassword: string) => {
-  if (user) {
-    try {
-      await admin.auth().updateUser(uid, {
-        password: newPassword,
-      })
-      console.log('successfully updated user password')
-    } catch (error) {
-      console.log('Error updating password:', error)
-    }
-  } else {
-    console.log('No user logged in')
-  }
-}
 
 export const emailVerify = async () => {
   if (user) {

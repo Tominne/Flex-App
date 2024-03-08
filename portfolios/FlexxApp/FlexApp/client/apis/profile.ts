@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const imgURL = 'http://localhost:3000/api/pfp'
+const imgURL = 'http://localhost:3002/api/pfp'
 
 export async function saveImg(pfp: string, userId: string): Promise<string> {
   try {

@@ -10,11 +10,15 @@ import {
   signUp,
   signIn,
   deleteCurrentUser,
-  updateUserPassword,
   emailVerify,
 } from '../apis/fetchUser'
+
 const auth = getAuth()
 const user = auth.currentUser
+
+if (auth.currentUser) {
+  console.log('User is signed in with ID:', auth.currentUser.uid)
+}
 
 async function getImageData() {
   if (user) {

@@ -7,7 +7,7 @@ export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-const thoughtURL = 'http://localhost:3000/api/thoughts'
+const thoughtURL = 'https://localhost:3002/api/thoughts'
 
 export const signUp = async (email: string, password: string) => {
   try {
