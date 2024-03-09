@@ -1,9 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
-import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import { Stack } from 'react-bootstrap'
-import { deletealert, updatealert } from '../apis/alert'
+//import { deleteThought, updateThought } from '../apis/alert'
 
 interface Props {
   alertId: number
@@ -16,35 +15,35 @@ export default function AlertListItem({ alertId, alertName }: Props) {
 
   const queryClient = useQueryClient()
 
-  const deletealertMutation = useMutation(deletealert, {
+  /*const deletealertMutation = useMutation(deletealert, {
     onSuccess: async () => {
       queryClient.invalidateQueries(['alerts'])
     },
-  })
+  })*/
 
-  const handleDeleteClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  /*const handleDeleteClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    deletealertMutation.mutate({ alertId })
-    console.log('deleting', alertId)
+    deletealertMutation.mutate({ thoughtId })
+    console.log('deleting', thoughtId)
   }
 
-  const updatealertMutation = useMutation(updatealert, {
+  const updatealertMutation = useMutation(updateThought, {
     onSuccess: async () => {
       queryClient.invalidateQueries(['alerts'])
     },
-  })
+  })*/
 
   const handleUpdateSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    updatealertMutation.mutate({
+    /*updatealertMutation.mutate({
       alertId,
-      newalertName: rename,
+      newthought: rename,
     })
 
     console.log('submitting', rename)
 
-    setUpdating(false)
+    setUpdating(false)*/
   }
 
   const handleStopUpdatingClick = () => {
@@ -84,9 +83,6 @@ export default function AlertListItem({ alertId, alertName }: Props) {
           </form>
         ) : (
           <Stack direction="horizontal" gap={2}>
-            <Button as="a" variant="primary" onClick={handleDeleteClick}>
-              Delete
-            </Button>
             <Button as="a" variant="primary" onClick={handleStartUpdatingClick}>
               Update
             </Button>

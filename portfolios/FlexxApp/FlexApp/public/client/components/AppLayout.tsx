@@ -31,15 +31,18 @@ export default function AppLayout() {
           <MDBCollapse navbar show={showNav}>
             <MDBNavbarNav>
               <MDBNavbarItem>
-                <MDBNavbarLink href="home">Min Home</MDBNavbarLink>
+                <MDBNavbarLink href="home">Home</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/">Um other stuff</MDBNavbarLink>
+                <MDBNavbarLink href="/">Existential Void</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="profile" tabIndex={-1}>
-                  Visitors Center
+                  Your Broken Profile
                 </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href="tictactoe">TicTacToe</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
@@ -48,7 +51,9 @@ export default function AppLayout() {
       <header className="header">
         <h1 className="title">Hi, my name is Min...</h1>
         <br></br>
-        <h2>& this is a Website</h2>
+        <h2>This is a website...</h2>
+        <br></br>
+        <h3>Or maybe it is a playground.</h3>
       </header>
       <section className="main">
         <Outlet />

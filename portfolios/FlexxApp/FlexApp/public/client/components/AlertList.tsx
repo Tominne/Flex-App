@@ -1,6 +1,5 @@
 import { getThoughts } from '../apis/alert'
-import React, { useEffect } from 'react'
-import Alert from 'react-bootstrap/Alert'
+import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import AlertForm from './AlertForm'
 
@@ -23,11 +22,14 @@ export default function ThoughtList() {
         Cheers...
         <div>
           <br></br>
-          <a href="/Malan.png">
-            <img className="gif" src="/Malan.png" alt="David Malan"></img>
+          <a href="../images/Malan.png">
+            <img
+              className="gif"
+              src="../images/Malan.png"
+              alt="David Malan"
+            ></img>
           </a>
           <p>This is David Malan!</p>
-          <p>This is still me running in a field!</p>
         </div>
         <div className="background">
           <section className="alert-list">
