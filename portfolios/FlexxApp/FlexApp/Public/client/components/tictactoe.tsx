@@ -91,7 +91,7 @@ function TicTacToe() {
     )
   })
   return (
-    <div className="game">
+    <div className="game, board">
       <Board
         squares={squares}
         finished={finished}
