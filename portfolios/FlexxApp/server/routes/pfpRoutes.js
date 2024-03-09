@@ -1,4 +1,4 @@
-const express = require('express')
+/*const express = require('express')
 const router = express.Router()
 const { addPfp } = require('../api/logPfp.js')
 const Pfp = require('../db/pfp.js')
@@ -19,4 +19,4 @@ router.get('/pfp/:userId', async (req, res) => {
   }
 })
 
-module.exports = router
+module.exports = router*/

@@ -1,4 +1,5 @@
-const Pfp = require('../db/pfp.js')
+/*const Pfp = require('../db/pfp.js')
+userId = String
 
 async function addPfp(req, res) {
   try {
@@ -11,4 +12,4 @@ async function addPfp(req, res) {
   }
 }
 
-module.exports = { addPfp }
+module.exports = { addPfp }*/

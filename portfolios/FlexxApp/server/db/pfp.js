@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+/*const mongoose = require('mongoose')
 
 const pfpSchema = new mongoose.Schema({
   pfp: String,
@@ -19,3 +19,4 @@ async function run() {
 run().catch(console.error)
 
 module.exports = Pfp
+*/

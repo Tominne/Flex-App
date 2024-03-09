@@ -3,18 +3,17 @@ const app = express()
 const thoughtRoutes = require('./routes/thoughtRoutes')
 const pfpRoutes = require('./routes/pfpRoutes')
 const cors = require('cors')
+app.use(express.json())
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 //middleware
-app.use(
-  cors({
-    origin: '*',
-    methods: ['GET', 'POST'],
-    allowedHeaders: '*',
-  })
-)
-app.use(express.json())
+app.use(cors(corsOptions))
+
 app.use('/api', thoughtRoutes)
-app.use('/api', pfpRoutes)
+//app.use('/api', pfpRoutes)
 
 const PORT = process.env.PORT || 3002
 
